@@ -7,34 +7,36 @@
     <mat-card-subtitle>Ingresa toda la información</mat-card-subtitle> 
   </mat-card-header>
   <mat-card-content>
-  <form class="dog-form">  
+
+  
+  <form class="dog-form" (submit)="uploadInfo(name,description,years,months)">  
   <mat-form-field class="example-full-width">
     <mat-label>Nombre</mat-label>
-    <input type="text" matInput>
+    <input type="text" matInput required #name>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>Descripción</mat-label>
-    <input type="text" matInput>
+    <input type="text" matInput required #description>
   </mat-form-field>
   <p>Edad:</p>  
   <mat-form-field class="example-full-width" style="width:50px !important">
       <mat-label>años</mat-label>
-      <input type="number" matInput>
+      <input type="number" matInput required #years>
   </mat-form-field>
   <mat-form-field class="example-full-width" style="width:50px !important">
       <mat-label>meses</mat-label>
-      <input type="number" matInput>
+      <input type="number" matInput required #months>
   </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Imagen</mat-label>
-    <input type="text" matInput>
-  </mat-form-field>
-  </form>
-
-  </mat-card-content>
+  <div class="file-input-wrapper">
+    <input type="file" style="display:none" (change)="onPhotoSelected($event)" #photoInput>
+    <img [src]="photoSelected || 'assets/icons/no-camera.png'" width=100% class="img-fluid" alt="No image" (click)="photoInput.click()">
+  </div>
   <mat-card-actions>
     <button mat-raised-button color="primary">AGREGAR</button>
   </mat-card-actions>
+  </form>
+
+  </mat-card-content>
 </mat-card>
 
 </div>
