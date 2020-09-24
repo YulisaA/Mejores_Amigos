@@ -1,18 +1,41 @@
-<form class="dog-form">
+<body class="container">
+<div class="main-div">
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Nuevo registro</mat-card-title> 
+    <mat-card-subtitle>Ingresa toda la información</mat-card-subtitle> 
+  </mat-card-header>
+  <mat-card-content>
+  <form class="dog-form">  
   <mat-form-field class="example-full-width">
     <mat-label>Nombre</mat-label>
-    <textarea matInput></textarea>
+    <input type="text" matInput>
   </mat-form-field>
-
   <mat-form-field class="example-full-width">
     <mat-label>Descripción</mat-label>
-    <textarea matInput></textarea>
+    <input type="text" matInput>
   </mat-form-field>
+  <p>Edad:</p>  
+  <mat-form-field class="example-full-width" style="width:50px !important">
+      <mat-label>años</mat-label>
+      <input type="number" matInput>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" style="width:50px !important">
+      <mat-label>meses</mat-label>
+      <input type="number" matInput>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Imagen</mat-label>
+    <input type="text" matInput>
+  </mat-form-field>
+  </form>
 
-    <table class="example-full-width" cellspacing="0"><tr>
-    <td><mat-form-field class="example-full-width">
-      <mat-label>Edad</mat-label>
-      <input matInput placeholder="años y meses">
-    </mat-form-field></td>
-  </tr></table>
-</form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">AGREGAR</button>
+  </mat-card-actions>
+</mat-card>
+
+</div>
+</body>

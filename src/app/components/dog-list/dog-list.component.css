@@ -7,3 +7,9 @@
     background-size: cover;
   }
 
+.container {
+    background-image: url(/assets/icons/colors-background.jpg);
+    background-size: 50% 50%;
+    background-repeat: repeat;
+}
+
