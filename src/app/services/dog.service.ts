@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Dog} from '../interfaces/Dog'
 
 @Injectable({
   providedIn: 'root'
 })
 export class DogService {
 
-  serverURI = 'http://localhost:4000/dogs'
+  serverURI = 'http://localhost:4000/api/dogs'
 
   constructor(private http: HttpClient) { }
 
@@ -17,8 +18,12 @@ export class DogService {
     formDog.append('years', years);
     formDog.append('months', months);
     formDog.append('photo', photo);
-    //return this.http.post(this.serverURI, formDog);
+    return this.http.post(this.serverURI, formDog);
   }
+
+getDogs(){
+  return this.http.get<Dog[]>(this.serverURI)
+}
 
 }
 

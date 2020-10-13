@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscriber } from 'rxjs';
-import { DogService } from '../../services/dog.service'
+import { DogService } from '../../services/dog.service';
+import {Router} from '@angular/router';
 
 interface HtmlInputEvent extends Event{
   target: HTMLInputElement & EventTarget;
@@ -33,8 +33,8 @@ export class DogFormComponent implements OnInit {
 
   uploadInfo(name: HTMLInputElement, description: HTMLInputElement, years: HTMLInputElement, months: HTMLInputElement):boolean{
       //Send data to service
-      this.dogService.createDog(name.value, description.value, years.value.toString(), months.value.toString(), this.file);
-      //.subscribe(res => console.log(res), err => console.log(err))
+      this.dogService.createDog(name.value, description.value, years.value.toString(), months.value.toString(), this.file)
+      .subscribe(res => console.log(res), err => console.log(err))
       return false;
   }
 
