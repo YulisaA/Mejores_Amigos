@@ -1,0 +1,43 @@
+.content {
+    padding: 16px;
+  }
+  
+  .content > mat-card {
+    width: 200px;
+  }
+    
+  .example-header-image {
+      background-image: url(/assets/icons/dog.png);
+      background-size: cover;
+    }
+  
+  .container {
+      background-image: url(/assets/icons/colors-background.jpg);
+      background-size: 50% 50%;
+      background-repeat: repeat;
+  }
+  
+  .example-card {
+    max-width: 600px;
+    max-height: 580px;
+    min-width: 600px;
+  }
+
+  .size-image {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .main-div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  

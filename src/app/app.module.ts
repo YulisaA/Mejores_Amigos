@@ -16,7 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,8 +36,8 @@ import {HttpClientModule} from '@angular/common/http'
     MatTableModule,
     MatButtonModule,
     MatToolbarModule,
-    HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

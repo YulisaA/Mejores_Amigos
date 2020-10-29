@@ -7,7 +7,7 @@
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{dog.name}}</mat-card-title>
-    <mat-card-subtitle>{{dog.years}}</mat-card-subtitle>
+    <mat-card-subtitle>{{dog.years}} años y {{dog.months}} meses</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image [src]="'http://localhost:4000/' + dog.pathPhoto">
   <mat-card-content>
@@ -15,9 +15,8 @@
       {{dog.description}}
     </p>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary">EDITAR</button>
-    <button mat-raised-button color="primary">ELIMINAR</button>
+  <mat-card-actions (click)="selected(dog._id)">
+    <button mat-raised-button color="primary">VER MÁS</button>
   </mat-card-actions>
 
 </mat-card>

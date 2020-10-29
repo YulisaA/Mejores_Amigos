@@ -16,7 +16,7 @@ export class DogFormComponent implements OnInit {
   file: File;
   photoSelected: string | ArrayBuffer;
 
-  constructor(private dogService: DogService) { }
+  constructor(private dogService: DogService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -34,7 +34,9 @@ export class DogFormComponent implements OnInit {
   uploadInfo(name: HTMLInputElement, description: HTMLInputElement, years: HTMLInputElement, months: HTMLInputElement):boolean{
       //Send data to service
       this.dogService.createDog(name.value, description.value, years.value.toString(), months.value.toString(), this.file)
-      .subscribe(res => console.log(res), err => console.log(err))
+      .subscribe(res => {
+        this.router.navigate(['/dogs']);
+      }, err => console.log(err))
       return false;
   }
 

@@ -1,1 +1,56 @@
-<p>dog-view works!</p>
+<body class="container">
+<div class="main-div">
+<div *ngIf="!dog; else main">
+    <h1>Cargando información...</h1>
+</div>
+
+<ng-template #main>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{dog.name}}</mat-card-title>
+    <mat-card-subtitle>Información</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <table CELLPADDING="10">
+    <tr>
+    <td valign="top">
+    <img [src]="'http://localhost:4000/' + dog.pathPhoto" class="size-image">
+    </td>
+    <td>
+
+    <form class="dog-form" (submit)="updateDog(name,description,years,months)">  
+    <mat-form-field class="example-full-width">
+    <mat-label>Nombre</mat-label>
+    <input type="text" matInput [value]="dog.name" #name>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+    <mat-label>Descripción</mat-label>
+    <input type="text" matInput [value]="dog.description" #description>
+    </mat-form-field>
+    <p>Edad:</p>  
+    <mat-form-field class="example-full-width" style="width:60px !important">
+      <mat-label>años</mat-label>
+      <input type="number" matInput [value]="dog.years" #years>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" style="width:70px !important">
+      <mat-label>meses</mat-label>
+      <input type="number" matInput [value]="dog.months" #months>
+    </mat-form-field>
+  
+  <mat-card-actions>
+    <button mat-raised-button color="primary">ACTUALIZAR</button>
+    <button mat-raised-button color="warn" (click)="deleteDog(dog._id)">ELIMINAR</button>
+  </mat-card-actions>
+  </form>
+
+    </td>
+   </tr> 
+   </table>
+  </mat-card-content>
+</mat-card>
+</ng-template>
+
+</div>
+</body>

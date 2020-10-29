@@ -21,9 +21,21 @@ export class DogService {
     return this.http.post(this.serverURI, formDog);
   }
 
-getDogs(){
-  return this.http.get<Dog[]>(this.serverURI)
-}
+  getSelectedDog(id: string){
+    return this.http.get<Dog>(this.serverURI + '/' + id);
+  }
+
+  getDogs(){
+    return this.http.get<Dog[]>(this.serverURI)
+  }
+
+  deleteDog(id: string){
+    return this.http.delete(this.serverURI + '/' + id);
+  }
+
+  updateDog(id:string, name: string, description: string, years: string, months: string){
+    return this.http.put(this.serverURI + '/' + id, {name, description, years, months});
+  }
 
 }
 
