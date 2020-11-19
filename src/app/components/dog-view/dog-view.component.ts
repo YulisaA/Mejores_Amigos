@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { DogService } from '../../services/dog.service';
 import { Dog } from "../../interfaces/Dog";
 import { getLocaleMonthNames } from '@angular/common';
+import { DialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'app-dog-view',
@@ -13,9 +14,10 @@ export class DogViewComponent implements OnInit {
 
   id: string;
   dog: Dog;
-
+  dogs = [];
   constructor(
-    private activatedRoute: ActivatedRoute, private router: Router, private dogService: DogService
+    private activatedRoute: ActivatedRoute, private router: Router, private dogService: DogService, 
+            private dialogService: DialogService
   ) { }
 
   ngOnInit() {
@@ -34,14 +36,28 @@ export class DogViewComponent implements OnInit {
   }
 
   deleteDog(id: string){
-    this.dogService.deleteDog(id)
+    /*this.dogService.deleteDog(id)
     .subscribe(
       res=>{
         console.log(res);
         this.router.navigate(['/dogs'])
       },
       err=> console.log(err)
-    )
+    )*/
+    this.dialogService.openConfirmDialog("¿Confirma eliminar el elemento?")
+    .afterClosed().subscribe(res=>{    
+       if(res){
+        this.dogService.deleteDog(id)
+        .subscribe(
+          res=>{
+            console.log(res);
+            window.location.reload();
+            this.router.navigate(['/dogs'])
+          },
+          err=> console.log(err)
+        )   
+       }
+    });
   }
 
   updateDog(name: HTMLInputElement, description: HTMLInputElement, years: HTMLInputElement, months: HTMLInputElement): boolean{

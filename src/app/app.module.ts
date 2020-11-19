@@ -17,6 +17,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {HttpClientModule} from '@angular/common/http';
+import * as Material from '@angular/material';
+import { DialogConfirmComponent } from './components/dialog-confirm/dialog-confirm.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import {HttpClientModule} from '@angular/common/http';
     NavigationComponent,
     DogFormComponent,
     DogViewComponent,
-    DogListComponent
+    DogListComponent,
+    DialogConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +40,11 @@ import {HttpClientModule} from '@angular/common/http';
     MatButtonModule,
     MatToolbarModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    Material.MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogConfirmComponent,DogViewComponent]
 })
 export class AppModule { }
